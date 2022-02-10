@@ -3,7 +3,7 @@
 # using HTML5 and tailwindcss with DOM manipulation
 
 # Live Link
-<a href ="http://nmrayhan.me/DOM-with-Banking-Calculation/banking.html" target="_blank">Link Here</a>
+<a href ="http://nmrayhan.me/DOM-with-Banking-Calculation/home.html" target="_blank">Link Here</a>
 
 # login system with Mobile first responsive
 <img src="/images/loginPage-mobile.png" alt="">
