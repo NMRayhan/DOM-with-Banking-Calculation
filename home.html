@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="container mx-auto bg-green-400 mt-10 rounded">
+      <div class="p-4 w-9/12 mx-auto">
+            <h1 class="text-4xl font-bold text-center text-slate-600">Islami Bank Bangladesh. Ltd</h1>
+            <span class="text-2xl font-bold text-center mt-5 block text-sky-700">Sukrabad, Branch</span>
+      </div>
+    </header>
+    <main>
+        <section class="container mx-auto bg-green-200 rounded mt-8 p-8 " id="loginSection">
+            <div class="text-center">
+                <p class="text-4xl  font-bold text-sky-700 p-8 font-sans">Please Login first</p>
+
+                <span class="mt-2 block text-pink-600 text-sm" id="errorMsg"></span>
+
+                <input type="email" name="" id="loginEmail" placeholder="Email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-6/12 mx-auto rounded-md sm:text-sm lg:text-4xl md:text-2xl focus:ring-1">
+
+                <input type="password" name="" id="loginPassword" placeholder="Password" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-6/12 mx-auto rounded-md sm:text-sm lg:text-4xl md:text-2xl focus:ring-1">
+
+                <button id="logInBtn" class="bg-sky-600 rounded-md text-bold text-white text-2xl px-4 py-2 mt-5">Login</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="home.js"></script>
+  </body>
+</html>
