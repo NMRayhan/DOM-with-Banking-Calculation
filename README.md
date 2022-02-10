@@ -10,4 +10,4 @@
 <img src="/images/System-tab.png" alt="">
 
 # Banking system with Mobile first responsive
-<img src="/images/System-mobile.png-mobile.png" alt="">
+<img src="/images/System-mobile.png" alt="">
