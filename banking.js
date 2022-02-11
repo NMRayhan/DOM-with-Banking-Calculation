@@ -1,44 +1,50 @@
-// event handler of Deposit 
-document.getElementById('depositBtn').addEventListener('click', function () {
+const withdrawalInput = document.getElementById('withdrawalAmountInput');
+const depositInput = document.getElementById('depositAmountInput');
 
-    // get the amount of deposit input field
-    const depositInput = document.getElementById('depositAmountInput');
+function deposit() {
     const receiveValue = depositInput.value
     let changeFormula = Math.abs(receiveValue)
-    const newDepositAmount = changeFormula;
+    const newDepositAmount = parseFloatConversion(changeFormula);
+    depositCalc(newDepositAmount);
+    totalAmountCalc('deposit', newDepositAmount);
+}
 
-    //get the amount of deposit total and set deposit total
-    const previousDeposit = document.getElementById('depositTotal');
-    const previousDepositAmount = previousDeposit.innerText;
-    let newDepositTotal = parseFloat(previousDepositAmount) + parseFloat(newDepositAmount);
-    previousDeposit.innerText = newDepositTotal;
-    depositInput.value = ''
-
-    //get the total Amount and set new Total amount
-    const previousAmount = document.getElementById('balanceTotal');
-    const previousTotalAmount = previousAmount.innerText;
-    let newTotalAmount = parseFloat(previousTotalAmount) + parseFloat(newDepositAmount);
-    previousAmount.innerText = newTotalAmount;
-})
-
-//event handler of withdrawal
-document.getElementById('withdrawalBtn').addEventListener('click', function(){
-    // get the amount of withdrawal input field
-    const withdrawalInput = document.getElementById('withdrawalAmountInput');
+function withdrawal() {
     const receiveValue = withdrawalInput.value;
     let changeFormula = Math.abs(receiveValue)
-    const newWithdrawalAmount = changeFormula;
+    const newWithdrawalAmount = parseFloatConversion(changeFormula);
+    withdrawalCalc(newWithdrawalAmount);
+    totalAmountCalc('withdrawal', newWithdrawalAmount);
+}
 
-    //get the amount of withdrawal total and set withdrawal total
+function parseFloatConversion(number) {
+    return parseFloat(number);
+}
+
+function depositCalc(amount) {
+    const previousDeposit = document.getElementById('depositTotal');
+    const previousDepositText = previousDeposit.innerText;
+    let newDepositTotal = parseFloatConversion(previousDepositText) + amount;
+    previousDeposit.innerText = newDepositTotal;
+    depositInput.value = ''
+}
+
+function withdrawalCalc(amount) {
     const previousWithdrawal = document.getElementById('withdrawalTotal');
-    const previousWithdrawalAmount = previousWithdrawal.innerText;
-    let newWithdrawalTotal = parseFloat(previousWithdrawalAmount) + parseFloat(newWithdrawalAmount);
+    const previousWithdrawalText = previousWithdrawal.innerText;
+    let newWithdrawalTotal = parseFloatConversion(previousWithdrawalText) + amount;
     previousWithdrawal.innerText = newWithdrawalTotal;
     withdrawalInput.value = ''
+}
 
-    //get the total Amount and set new Total amount
+function totalAmountCalc(transType, amount) {
     const previousAmount = document.getElementById('balanceTotal');
     const previousTotalAmount = previousAmount.innerText;
-    let newTotalAmount = parseFloat(previousTotalAmount) - parseFloat(newWithdrawalAmount);
-    previousAmount.innerText = newTotalAmount;
-})
+    if (transType == 'withdrawal') {
+        let newTotalAmount = parseFloatConversion(previousTotalAmount) - amount;
+        previousAmount.innerText = newTotalAmount;
+    } else {
+        let newTotalAmount = parseFloatConversion(previousTotalAmount) + amount;
+        previousAmount.innerText = newTotalAmount;
+    }
+}
