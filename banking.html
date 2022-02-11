@@ -38,7 +38,6 @@
             <div class="mt-6 mb-10 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-8 gap-y-4 justify-around  bg-teal-600 p-20 rounded text-center place-content-center">
                 <div class="bg-purple-300 p-5 rounded">
                     <p class="text-4xl  font-bold text-sky-700 font-sans break-words">Deposit Amount</p>
-                    <span id="errorMsg"></span>
                     <div class="mt-4 text-center">
                         <input type="number" id="depositAmountInput" placeholder="Deposit Amount" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-9/12 mx-auto rounded-md sm:text-sm focus:ring-1 lg:text-4xl md:text-2xl">
                         <span class="mt-2 block text-pink-600 text-sm" id="errorMsg"></span>
@@ -47,10 +46,9 @@
                 </div>
                 <div class="bg-sky-300 p-5 rounded">
                     <p class="text-4xl  font-bold text-sky-700 font-sans break-words">Withdrawal Amount</p>
-                    <span id="errorMsg"></span>
                     <div class="mt-4 text-center">
                         <input type="number" id="withdrawalAmountInput" placeholder="Widthrow Amount" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-9/12 mx-auto rounded-md sm:text-sm focus:ring-1 lg:text-4xl md:text-2xl">
-                        <span class="mt-2 block text-pink-600 text-sm"></span>
+                        <span class="mt-2 block text-pink-600 text-sm" id="errorMsg"></span>
                     </div>
                     <button onclick="withdrawal()" class="bg-teal-600 rounded-md text-bold text-white text-2xl px-4 py-2 mt-5">Deposit</button>
                 </div>

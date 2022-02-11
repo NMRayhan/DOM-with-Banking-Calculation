@@ -1,5 +1,8 @@
 const withdrawalInput = document.getElementById('withdrawalAmountInput');
 const depositInput = document.getElementById('depositAmountInput');
+const previousAmount = document.getElementById('balanceTotal');
+const previousWithdrawal = document.getElementById('withdrawalTotal');
+const previousDeposit = document.getElementById('depositTotal');
 
 function deposit() {
     const receiveValue = depositInput.value
@@ -10,11 +13,18 @@ function deposit() {
 }
 
 function withdrawal() {
+    const previousAmountText = previousAmount.innerText
+    const previousTotal = parseFloatConversion(previousAmountText);
     const receiveValue = withdrawalInput.value;
     let changeFormula = Math.abs(receiveValue)
     const newWithdrawalAmount = parseFloatConversion(changeFormula);
-    withdrawalCalc(newWithdrawalAmount);
-    totalAmountCalc('withdrawal', newWithdrawalAmount);
+    if(previousTotal >= newWithdrawalAmount){   
+        withdrawalCalc(newWithdrawalAmount);
+        totalAmountCalc('withdrawal', newWithdrawalAmount);
+    }else{
+        withdrawalInput.value = ''
+        alert("Your Balance is Zero!!!");
+    }
 }
 
 function parseFloatConversion(number) {
@@ -22,7 +32,6 @@ function parseFloatConversion(number) {
 }
 
 function depositCalc(amount) {
-    const previousDeposit = document.getElementById('depositTotal');
     const previousDepositText = previousDeposit.innerText;
     let newDepositTotal = parseFloatConversion(previousDepositText) + amount;
     previousDeposit.innerText = newDepositTotal;
@@ -30,7 +39,6 @@ function depositCalc(amount) {
 }
 
 function withdrawalCalc(amount) {
-    const previousWithdrawal = document.getElementById('withdrawalTotal');
     const previousWithdrawalText = previousWithdrawal.innerText;
     let newWithdrawalTotal = parseFloatConversion(previousWithdrawalText) + amount;
     previousWithdrawal.innerText = newWithdrawalTotal;
@@ -38,7 +46,6 @@ function withdrawalCalc(amount) {
 }
 
 function totalAmountCalc(transType, amount) {
-    const previousAmount = document.getElementById('balanceTotal');
     const previousTotalAmount = previousAmount.innerText;
     if (transType == 'withdrawal') {
         let newTotalAmount = parseFloatConversion(previousTotalAmount) - amount;
